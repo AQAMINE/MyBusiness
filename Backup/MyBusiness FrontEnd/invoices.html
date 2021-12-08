@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Invoices</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main-drk.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        </button>
+        </div>
+	  		<div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+	  			<div class="user-logo">
+	  				<div class="img  "style="background-image: url(images/logo.jpg);" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"> <div class="img blacks" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><a class="Link_call_Modal_PDP" href="#" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><small>Change</small></a></div></div>
+	  				<h3>Amine Aqebli</h3>
+	  			</div>
+	  		</div>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="dashboard.html"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li>
+              <a href="notifications.html"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Notifications</a>
+          </li>
+          <li>
+            <a href="analytics.html"><span class="fa fa-bar-chart mr-3"></span> Analytics</a>
+          </li>
+          <li>
+            <a href="tasks.html"><span class="fa fa-tasks mr-3"></span> Tasks</a>
+          </li>
+          <li  class="active">
+            <a href="invoices.html"><span class="fa fa-file-excel-o mr-3"></span> Invoices</a>
+          </li>
+          <li>
+            <a href="clients.html"><span class="fa fa-users mr-3"></span> Clients</a>
+          </li>
+          <li>
+            <a href="usersmanager.html"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
+          </li>
+          <li>
+            <a href="profile.html"><span class="fa fa-user mr-3"></span> Profile</a>
+          </li>
+          <li>
+            <a href="settings.html"><span class="fa fa-cog mr-3"></span> Settings</a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#LogoutModal"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Invoices</h2>
+
+        <form action="">
+          <div class="input-group mb-3">
+            <a title="Add new invoice"  class="add-r-button btn btn-success rounded-0"  data-bs-toggle="modal" data-bs-target="#AddNewInvoiceModal" ><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+            <input type="text" class="form-control rounded-0" placeholder="Type InvoceId|Client Name|Keyword From Comments" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary rounded-0 finder_button" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+          </div>
+      </form>
+        <!--Start invoices-->
+      
+          <table class="table table-dark text-center">
+            <thead>
+              <tr>
+                <th scope="col">Create Date</th>
+                <th scope="col">Client Name</th>
+                <th scope="col">Total</th>
+                <th scope="col">Paid amount</th>
+                <th scope="col">Rest unpaid amount</th>
+                <th scope="col">Paid or not</th>
+                <th scope="col">Final payment date</th>
+                <th scope="col">Full view or edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">12/10/2021</th>
+                <td>ahmed nabil</td>
+                <td>29000</td>
+                <td>20000</td>
+                <td>9000</td>
+                <td class="bg-danger">NO</td>
+                <td>12/11/2021</td>
+                <td><a href="fullInvoice.html" class="btn btn-secondary btn-sm  rounded-0">See More</a></td>
+              </tr>
+
+              <tr>
+                <th scope="row">12/10/2021</th>
+                <td>ahmed nabil</td>
+                <td>29000</td>
+                <td>29000</td>
+                <td>0</td>
+                <td class="bg-success">Yes</td>
+                <td>12/11/2021</td>
+                <td><a href="fullInvoice.html" class="btn btn-secondary btn-sm  rounded-0">See More</a></td>
+              </tr>
+            
+            </tbody>
+          </table>
+        <!--End invoices-->
+
+        <!--Start New Invoice Modal-->
+        <div class="modal fade" id="AddNewInvoiceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="AddNewInvoiceModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <form action="">
+              <div class="modal-content rounded-0">
+                <div class="modal-header bg-success  rounded-0">
+                  <h5 class="modal-title" id="AddNewInvoiceModalLabel">Add  New Invoice</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                  <div class="mb-3">
+                    <label for="invoiceid" class="form-label">Invoce Id <small class="text-muted">(generate automatically)</small></label>
+                    <input type="text" class="form-control rounded-0" id="invoiceid" disabled placeholder="Invoice Id"/>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelectAddinvoice" name="client" aria-label="Floating label select example">
+                        <option selected>Select  client</option>
+                        <option value="1">All</option>
+                        <option value="2">amine aqebli</option>
+                        <option value="3">kamal aqebli</option>
+                        <option value="4">Hakim Nouman</option>
+                      </select>
+                      <label for="floatingSelectAddinvoice">For clients already added</label>
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="invoicedate" class="form-label">Invoice Date</label>
+                    <input type="date" name="invoicedate" class="form-control rounded-0" id="invoicedate" placeholder="Invoice Date"/>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="total" class="form-label">Invoice Total  (Dh)</label>
+                    <input type="number" name="total" id="total" class="form-control rounded-0" placeholder="Invoice Total"/>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="AmountPaid" class="form-label">Amount Paid (Dh)</label>
+                    <input type="number" name="amountpaid" id="AmountPaid" class="form-control rounded-0" placeholder="Amount Paid"/>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="restunpaidamount" class="form-label">Rest unpaid amount (Dh)</label>
+                    <input type="number" name="restUnpaidAmount" id="restunpaidamount" class="form-control rounded-0" placeholder="Rest unpaid amount"/>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="finalPaymentPeriod" class="form-label">Final payment period</label>
+                    <input type="date" name="finalPaymentPeriod" class="form-control rounded-0" id="finalPaymentPeriod" placeholder="Final payment period"/>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelectPM" name="client" aria-label="Floating label select example">
+                        <option selected>Sayment method</option>
+                        <option value="1">All</option>
+                        <option value="2">Cash</option>
+                        <option value="3">Check</option>
+                        <option value="4">Bank transfer</option>
+                        <option value="5">Draft</option>
+                        <option value="6">Wafacash</option>
+                        <option value="6">Cashplus</option>
+                      </select>
+                      <label for="floatingSelectPM">Select payment method</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="invocelink"  class="form-label">Invoice Link (Google Sheet)</label>
+                    <input type="text" name="invoiccelink" id="invocelink" class="form-control rounded-0">
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="paidornot" name="paidornot">
+                      <label class="form-check-label" for="paidornot">Paid or not</label>
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea class="form-control rounded-0" name="comment" id="comment"></textarea>
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-success btn-sm rounded-0">Add Invoice</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--End New Invoice Modal-->
+
+           <!--Start change profile picture Modal-->
+      <div class="modal fade" id="changeProfilePictureModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeProfilePictureModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="">
+            <div class="modal-content rounded-0">
+              <div class="modal-header bg-dark rounded-0">
+                <h5 class="modal-title text-white" id="changeProfilePictureModalLabel">Change profile picture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="profilepicture" class="form-label">Open or drag your picture here</label>
+                    <input class="form-control" type="file" id="profilepicture" name="profilepicture">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success btn-sm rounded-0">Change</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--End change profile picture Modal-->
+        <footer>Copyright 2019 2021 all rights reserved|AQAMINE DEVELOPER</footer>
+      </div>
+		</div>
+
+    <!--Start Logout invoice Modal-->
+    <div class="modal fade" id="LogoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form action="">
+          <div class="modal-content rounded-0">
+            <div class="modal-header bg-secondary  rounded-0">
+              <h5 class="modal-title" id="LogoutModalLabel">Confirmation!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Sure you want to <strong>Sign Out?</strong>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-info btn-sm rounded-0">SignOut</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--End Logout invoice Modal-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

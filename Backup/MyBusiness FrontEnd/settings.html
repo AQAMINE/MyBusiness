@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Settings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main-drk.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        </button>
+        </div>
+	  		<div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+	  			<div class="user-logo">
+	  				<div class="img  "style="background-image: url(images/logo.jpg);" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"> <div class="img blacks" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><a class="Link_call_Modal_PDP" href="#" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><small>Change</small></a></div></div>
+	  				<h3>Amine Aqebli</h3>
+	  			</div>
+	  		</div>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="dashboard.html"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li>
+              <a href="notifications.html"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Notifications</a>
+          </li>
+          <li>
+            <a href="analytics.html"><span class="fa fa-bar-chart mr-3"></span> Analytics</a>
+          </li>
+          <li>
+            <a href="tasks.html"><span class="fa fa-tasks mr-3"></span> Tasks</a>
+          </li>
+          <li>
+            <a href="invoices.html"><span class="fa fa-file-excel-o mr-3"></span> Invoices</a>
+          </li>
+          <li>
+            <a href="clients.html"><span class="fa fa-users mr-3"></span> Clients</a>
+          </li>
+          <li>
+            <a href="usersmanager.html"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
+          </li>
+          <li>
+            <a href="profile.html"><span class="fa fa-user mr-3"></span> Profile</a>
+          </li>
+          <li class="active">
+            <a href="settings.html"><span class="fa fa-cog mr-3"></span> Settings</a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#LogoutModal"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Settings</h2>
+       
+        <!--Start Settings choice-->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              General Settings <span class="fa fa-list-alt ml-2" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+              
+            <form action="">
+              
+              <div class="mb-3">
+                <label for="appName"  class="form-label">Application Name</label>
+                <input type="text" class="form-control rounded-0"  name="AppName" id="appName" value="Sahtek Bin Idik Stock">
+              </div>
+
+
+              <div class="mb-3">
+                <label for="appLogo"  class="form-label">Application Logo</label>
+                <input type="file" class="form-control rounded-0"  name="AppLogo" id="appLogo">
+
+                <a class="link-secondary rounded-0 mt-1"   data-bs-toggle="collapse" href="#cinOldPic" role="button" aria-expanded="false" aria-controls="cinOldPic">Show the current logo</a>
+                  <div class="collapse" id="cinOldPic">
+                    <div class="card card-body">
+                      <img class="img-thumbnail" src="src/AppLogo.png" height="200px" width="200px" alt="logoapp">
+                    </div>
+                  </div>
+              </div>
+              <hr>
+              <button class="btn btn-success btn-sm rounded-0" type="submit" style="width: 100px;">Save</button>
+            </form>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion" id="accordionTheme">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTheme">
+              <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTheme" aria-expanded="false" aria-controls="collapseTheme">
+                Theme <span class="fa fa-adjust ml-2" aria-hidden="true"></span>
+              </button>
+            </h2>
+            
+            <div id="collapseTheme" class="accordion-collapse collapse " aria-labelledby="headingTheme" data-bs-parent="#accordionTheme">
+              <div class="accordion-body">
+                <!--Start Mode Dark/light-->
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Chose Mode</h5>
+                    <form action="">
+                      <select class="form-select form-select-lg mb-3" aria-label=".mode">
+                        <option selected>Select Mode</option>
+                        <option value="1"  selected>Dark mode</option>
+                        <option value="2">Light mode</option>
+                      </select>
+                      <button type="submit" class="btn btn-dark btn-sm rounded-0">Save Change</button>
+                  </form>
+                  </div>
+                </div>
+                 <!--End Mode Dark/light-->
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingAnalytics">
+              <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnalytics" aria-expanded="false" aria-controls="collapseAnalytics">
+                Analytics <span class="fa fa-bar-chart ml-2" aria-hidden="true"></span>
+              </button>
+            </h2>
+            <div id="collapseAnalytics" class="accordion-collapse collapse" aria-labelledby="headingAnalytics" data-bs-parent="#headingAnalytics">
+              <div class="accordion-body">
+                <h5 class="text-dark">Analytics View</h5>
+
+                <form action="">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input viewsradio" type="checkbox" role="switch" id="salesRadio" checked>
+                    <label class="form-check-label" for="salesRadio">Sales</label>
+                  </div>
+  
+                  <div class="form-check form-switch">
+                    <input class="form-check-input viewsradio" type="checkbox" role="switch" id="invoiceRadio" checked>
+                    <label class="form-check-label" for="invoiceRadio">Invoices</label>
+                  </div>
+  
+                  <div class="form-check form-switch">
+                    <input class="form-check-input viewsradio" type="checkbox" role="switch" id="tasksRadio" checked>
+                    <label class="form-check-label" for="tasksRadio">Tasks</label>
+                  </div>
+  
+                  <div class="form-check form-switch">
+                    <input class="form-check-input viewsradio" type="checkbox" role="switch" id="clientsRadio" checked>
+                    <label class="form-check-label" for="clientsRadio">Clients</label>
+                  </div>
+                  <hr>
+                  <button class="btn btn-success btn-sm rounded-0" style="width: 100px;">Save</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNotifications">
+              <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNotifications" aria-expanded="false" aria-controls="collapseNotifications">
+                Notifications <span class="fa fa-bell ml-2" aria-hidden="true"></span>
+              </button>
+            </h2>
+            <div id="collapseNotifications" class="accordion-collapse collapse" aria-labelledby="headingNotifications" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <div class="form-check form-switch">
+                  <input class="form-check-input viewsradio" type="checkbox" role="switch" id="notificationRadio" checked>
+                  <label class="form-check-label" for="notificationRadio">Active Notifications</label>
+                </div>
+                <hr>
+                <button class="btn btn-success btn-sm rounded-0" style="width: 100px;">Save</button>
+
+              </div>
+            </div>
+          </div>
+
+     
+        </div>
+    <!--End Settings choice-->
+
+       <!--Start change profile picture Modal-->
+       <div class="modal fade" id="changeProfilePictureModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeProfilePictureModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="">
+            <div class="modal-content rounded-0">
+              <div class="modal-header bg-dark rounded-0">
+                <h5 class="modal-title text-white" id="changeProfilePictureModalLabel">Change profile picture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="profilepicture" class="form-label">Open or drag your picture here</label>
+                    <input class="form-control" type="file" id="profilepicture" name="profilepicture">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success btn-sm rounded-0">Change</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--End change profile picture Modal-->
+    <footer>Copyright 2019 2021 all rights reserved|AQAMINE DEVELOPER</footer>
+      </div>
+		</div>
+
+    <!--Start Logout invoice Modal-->
+    <div class="modal fade" id="LogoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form action="">
+          <div class="modal-content rounded-0">
+            <div class="modal-header bg-secondary  rounded-0">
+              <h5 class="modal-title" id="LogoutModalLabel">Confirmation!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Sure you want to <strong>Sign Out?</strong>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-info btn-sm rounded-0">SignOut</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--End Logout invoice Modal-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

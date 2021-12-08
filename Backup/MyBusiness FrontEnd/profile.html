@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main-drk.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        </button>
+        </div>
+	  		<div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+	  			<div class="user-logo">
+	  				<div class="img  "style="background-image: url(images/logo.jpg);" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"> <div class="img blacks" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><a class="Link_call_Modal_PDP" href="#" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><small>Change</small></a></div></div>
+	  				<h3>Amine Aqebli</h3>
+	  			</div>
+	  		</div>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="dashboard.html"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li>
+              <a href="notifications.html"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Notifications</a>
+          </li>
+          <li>
+            <a href="analytics.html"><span class="fa fa-bar-chart mr-3"></span> Analytics</a>
+          </li>
+          <li>
+            <a href="tasks.html"><span class="fa fa-tasks mr-3"></span> Tasks</a>
+          </li>
+          <li>
+            <a href="invoices.html"><span class="fa fa-file-excel-o mr-3"></span> Invoices</a>
+          </li>
+          <li>
+            <a href="clients.html"><span class="fa fa-users mr-3"></span> Clients</a>
+          </li>
+          <li>
+            <a href="usersmanager.html"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
+          </li>
+          <li class="active">
+            <a href="profile.html"><span class="fa fa-user mr-3"></span> Profile</a>
+          </li>
+          <li>
+            <a href="settings.html"><span class="fa fa-cog mr-3"></span> Settings</a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#LogoutModal"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Profile</h2>
+       
+        <!--Start Profile  Content-->
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <table class="table table-dark">
+                <form action="">
+             
+                  <tr>
+                    <th scope="row">UserName</th>
+                    <td><input type="text"  class="form-control-plaintext form-control-dark-mode" name="username" value="aqamine"></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">First Name</th>
+                    <td><input type="text"  class="form-control-plaintext form-control-dark-mode" name="firstname" value="amine"></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Last Name</th>
+                    <td><input type="text"  class="form-control-plaintext form-control-dark-mode" name="lastname" value="aqebli"></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Phone Number</th>
+                    <td><input type="tel"  class="form-control-plaintext form-control-dark-mode" name="phone" value="0687591067"></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Role</th>
+                    <td><input type="text"  class="form-control-plaintext form-control-dark-mode" readonly disabled value="Admin"></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">CIN</th>
+                    <td><input type="text"  class="form-control-plaintext form-control-dark-mode" name="cin" value="EE543678"></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Id Card</th>
+                    <td><a class="btn btn-danger btn-sm rounded-0"data-bs-target="#UploadIdCardModal" data-bs-toggle="modal" href="#"><i class="fa fa-upload"></i> Upload</a> <span class="badge bg-success">Success</span></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Approvement</th>
+                    <td><span class="badge bg-success">Success</span></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Joined Date</th>
+                    <td>12/12/2022</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Role In company</th>
+                    <td><textarea class="form-control-plaintext form-control-dark-mode rounded-0">Admin Control all users and marketing stuf like social media...</textarea></td>
+                  </tr>
+
+              </table>
+            </form>
+
+            </div>
+            <!--Start Profile Picture Update Card-->
+            <div class="col-lg-6  col-md-6 col-sm-12">
+              <div class="card bg-dark text-light" style="width: 18rem;">
+                <img src="src/12.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-light">Profile Picture</h5>
+                  <p class="card-text">you must upload professional profile picture</p>
+                  <a href="#" class="btn btn-info rounded-0" data-bs-target="#changeProfilePicturePageModal" data-bs-toggle="modal">Change profile picture</a>
+                </div>
+              </div>
+            </div>
+            <!--End Profile Picture Update Card-->
+            
+            <!--Start Button Grid-->
+            <section class="btn-profile-update">
+              <div class="row row-cols-auto">
+
+                <div class="col ps-3 px-0">
+                  <button class="btn btn-info rounded-0" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Change Password</button>
+                </div>
+                <div class="col px-1">
+                  <button class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#RemoveuserModal">Delete Account</button>
+                </div>
+                <div class="col px-0">
+                  <button class="btn btn-success rounded-0">Save Change</button>
+                </div>
+
+              </div>
+          </section>
+            <!--End Button Grid-->
+
+          </div>
+        </div>
+        <!--End Profile  Content-->
+
+            <!--Start Remove user Modal-->
+            <div class="modal fade" id="RemoveuserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="RemoveuserModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <form action="">
+                  <div class="modal-content rounded-0">
+                    <div class="modal-header bg-danger  rounded-0">
+                      <h5 class="modal-title" id="RemoveuserModalLabel">Warning!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <ul>
+                        <li>All invoices created by this account will be <strong>Deleted</strong></li>
+                        <li>All clients created by this account will be <strong>Deleted</strong></li>
+                        <li>Sure you want to <strong>Close</strong> this account?</li>
+                      </ul> 
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger btn-sm rounded-0">Delete Account</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!--End Remove user Modal-->
+
+                  <!--Start change profile picture Modal-->
+                  <div class="modal fade" id="changeProfilePicturePageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeProfilePicturePageModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="">
+                        <div class="modal-content rounded-0">
+                          <div class="modal-header bg-info  rounded-0">
+                            <h5 class="modal-title" id="changeProfilePicturePageModalLabel">Change profile picture</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="mb-3">
+                                <label for="profilepicture" class="form-label">Open or drag your picture here</label>
+                                <input class="form-control" type="file" id="profilepicture" name="profilepicture">
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-info btn-sm rounded-0">Change</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!--End change profile picture Modal-->
+
+                      <!--Start upload idcard picture Modal-->
+                      <div class="modal fade" id="UploadIdCardModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="UploadIdCardModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <form action="">
+                            <div class="modal-content rounded-0">
+                              <div class="modal-header bg-info  rounded-0">
+                                <h5 class="modal-title" id="UploadIdCardModalLabel">Upload IdCard</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <div class="mb-3">
+                                    <label for="idcard" class="form-label">Open or drag your idcard picture here</label>
+                                    <input class="form-control" type="file" id="idcard" name="idcard">
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-info btn-sm rounded-0">Save</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <!--End upload idcard picture Modal-->   
+      
+                  <!--Start change password Modal-->
+                  <div class="modal fade" id="changePasswordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="">
+                        <div class="modal-content rounded-0">
+                          <div class="modal-header bg-info  rounded-0">
+                            <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              
+                            <div class="mb-3">
+                              <input class="form-control rounded-0" type="password" name="oldpassword" placeholder="Old Password"/>
+                            </div>
+                            <div class="row g-3">
+                              <div class="col">
+                                <input type="password" class="form-control rounded-0" name="password1" placeholder="New Password" aria-label="New Password">
+                              </div>
+                              <div class="col">
+                                <input type="password" class="form-control rounded-0" name="password2" placeholder="Repeat password" aria-label="Repeat password">
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-info btn-sm rounded-0">Change</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!--End change password Modal-->  
+
+                     <!--Start change profile picture Modal-->
+                  <div class="modal fade" id="changeProfilePictureModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeProfilePictureModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="">
+                        <div class="modal-content rounded-0">
+                          <div class="modal-header bg-dark rounded-0">
+                            <h5 class="modal-title text-white" id="changeProfilePictureModalLabel">Change profile picture</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="mb-3">
+                                <label for="profilepicture" class="form-label">Open or drag your picture here</label>
+                                <input class="form-control" type="file" id="profilepicture" name="profilepicture">
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-success btn-sm rounded-0">Change</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+             <!--End change profile picture Modal-->
+                  <footer>Copyright 2019 2021 all rights reserved|AQAMINE DEVELOPER</footer>
+      </div>
+		</div>
+
+    <!--Start Logout invoice Modal-->
+    <div class="modal fade" id="LogoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form action="">
+          <div class="modal-content rounded-0">
+            <div class="modal-header bg-secondary  rounded-0">
+              <h5 class="modal-title" id="LogoutModalLabel">Confirmation!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Sure you want to <strong>Sign Out?</strong>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-info btn-sm rounded-0">SignOut</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--End Logout invoice Modal-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

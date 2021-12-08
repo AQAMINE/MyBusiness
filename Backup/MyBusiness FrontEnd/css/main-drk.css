@@ -1,0 +1,112 @@
+/***********************Main Css File By Aqamine*********************/
+
+/***********************Start Default*********************/
+body{
+    background-color: rgb(241 241 241);
+}
+
+.add-r-button{
+  /*font-size: 20px;*/
+  margin-bottom: 5px;
+  color: white !important;
+}
+#sidebarCollapse{
+  z-index: 9999;
+}
+.toast{
+  margin-bottom: 5px;
+}
+.form-control-dark-mode{
+  color: white;
+ 
+}
+.finder_button{
+  height: 38px !important;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+/***********************End Default***********************/
+
+/***********************Start SideBare********************/
+.Profile_Pic_Change{
+  background-image: url(../images/logo.jpg);
+}
+.blacks:hover{
+  background-color: rgba(0, 0, 0, 0.37);
+  cursor: pointer;
+}
+.Link_call_Modal_PDP{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 13px auto !important;
+    /* margin-top: 10px !important; */
+    position: absolute;
+    bottom: 67px;
+    left: 124px;
+    display: none;
+}
+.Link_call_Modal_PDP:hover{
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+#sidebar ul li a{
+  text-decoration: none !important;
+}
+/***********************End SideBare********************/
+
+
+/***********************Start Notification Page*********************/
+.delete-notification{
+    cursor: pointer;
+}
+
+/***********************End Notification Page*********************/
+
+/*********************** Start analytics Page *********************/
+.dh_analytics{
+  font-size: 20px;
+}
+
+
+.viewsradio:checked{
+  background-color: #198753;
+  border-color: #198753;
+}
+/*********************** End analytics Page *********************/
+
+/***********************Start Tasks Page *********************/
+.taks-done{
+  margin-top:20px ;
+}
+
+/**************End Tasks Page *********************/
+
+/**************Star Profile Page *********************/
+.btn-profile-update{
+  margin-top: 5px;
+}
+.btn-profile-update .btn{
+  margin-top: 5px;
+}
+/**************End Profile Page *********************/
+
+/**************Start FullInvoice Page *********************/
+.btn-update-fullInvoice a{
+  width: 100%;
+}
+/**************End FullInvoice Page *********************/
+
+
+/**********************Start Footer***********************/
+footer{
+  text-align: center;
+    font-size: 13px;
+    color: #2a2a2a;
+    margin-top: 10px;
+}
+
+/**********************End Footer***********************/
+
