@@ -1,0 +1,179 @@
+/***********************Main Css File By Aqamine*********************/
+
+/***********************Start Default*********************/
+body{
+    background-color: rgb(241 241 241);
+}
+
+.add-r-button{
+  /*font-size: 20px;*/
+  margin-bottom: 5px;
+  color: white !important;
+}
+#sidebarCollapse{
+  z-index: 9999;
+}
+.toast{
+  margin-bottom: 5px;
+}
+.form-control-dark-mode{
+  color: white;
+ 
+}
+.finder_button{
+  height: 38px !important;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+/***********************End Default***********************/
+
+
+/***********************Start SideBare********************/
+.Profile_Pic_Change{
+  background-image: url(../images/logo.jpg);
+}
+.blacks:hover{
+  background-color: rgba(0, 0, 0, 0.37);
+  cursor: pointer;
+}
+.Link_call_Modal_PDP{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 13px auto !important;
+    /* margin-top: 10px !important; */
+    position: absolute;
+    bottom: 67px;
+    left: 124px;
+    display: none;
+}
+.Link_call_Modal_PDP:hover{
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+#sidebar ul li a{
+  text-decoration: none !important;
+}
+/***********************End SideBare********************/
+
+/*********************** Start Register  Page ********************/
+.register-logo{
+  font-size: 100px;
+  color: #212529;
+  text-shadow: 1px 1px 7px black;
+}
+.register-page input{
+  background-color: #f1f1f1;
+}
+.register-page input:focus{
+  border-color: #f1f1f1;
+  background-color: #f1f1f1 !important;
+  box-shadow: 0 0 3px 0.25rem rgb(175 175 175);
+}
+/*********************** End Register  Page **********************/
+
+/***********************Start Login Page ********************/
+.login-logo{
+  font-size: 100px;
+  color: #212529;
+  text-shadow: 1px 1px 7px black;
+}
+.login-page #password ,.login-page #email{
+  background-color: #f1f1f1;
+}
+.login-page #password:focus ,.login-page #email:focus{
+  border-color: #f1f1f1;
+  background-color: #f1f1f1 !important;
+  box-shadow: 0 0 3px 0.25rem rgb(175 175 175);
+
+}
+/***********************Start Login Page ********************/
+
+/***********************Start Reset Password Page ********************/
+.ResetPassword input{
+  background-color: #f1f1f1;
+}
+.ResetPassword input:focus{
+  border-color: #f1f1f1;
+  background-color: #f1f1f1 !important;
+  box-shadow: 0 0 3px 0.25rem rgb(175 175 175);
+}
+/***********************End Reset Password Page ********************/
+
+/***********************Start New Password Page ********************/
+.NewPassword input{
+  background-color: #f1f1f1;
+
+}
+.NewPassword input:focus{
+  border-color: #f1f1f1;
+  background-color: #f1f1f1 !important;
+  box-shadow: 0 0 3px 0.25rem rgb(175 175 175);
+}
+/***********************End New Password Page ********************/
+
+/***********************End Confirm Password Page ********************/
+.ConfirmPassword input{
+  background-color: #f1f1f1;
+}
+.ConfirmPassword input:focus{
+  border-color: #f1f1f1;
+  background-color: #f1f1f1 !important;
+  box-shadow: 0 0 3px 0.25rem rgb(175 175 175);
+}
+/***********************End Confirm Password Page ********************/
+
+/***********************Start Notification Page*********************/
+.delete-notification{
+    cursor: pointer;
+}
+
+/***********************End Notification Page*********************/
+
+/*********************** Start analytics Page *********************/
+.dh_analytics{
+  font-size: 20px;
+}
+
+
+.viewsradio:checked{
+  background-color: #198753;
+  border-color: #198753;
+}
+/*********************** End analytics Page *********************/
+
+/***********************Start Tasks Page *********************/
+.taks-done{
+  margin-top:20px ;
+}
+
+/**************End Tasks Page *********************/
+
+/**************Star Profile Page *********************/
+.btn-profile-update{
+  margin-top: 5px;
+}
+.btn-profile-update .btn{
+  margin-top: 5px;
+}
+/**************End Profile Page *********************/
+
+/**************Start FullInvoice Page *********************/
+.btn-update-fullInvoice a{
+  width: 100%;
+}
+/**************End FullInvoice Page *********************/
+
+
+/**********************Start Footer***********************/
+footer{
+  text-align: center;
+    font-size: 13px;
+    color: #2a2a2a;
+    margin-top: 10px;
+}
+
+/**********************End Footer***********************/
+
