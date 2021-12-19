@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//Start Tasks Routes
+Route::get('tasks' , 'TaskController@index');
+//End Tasks Routes
+
+//Start Resource  Controller
+Route::resource('/tasks', 'TaskController');
+Route::resource('/notifications', 'NotificationControler');
+//End  Resource Controller
 
 Auth::routes();
 

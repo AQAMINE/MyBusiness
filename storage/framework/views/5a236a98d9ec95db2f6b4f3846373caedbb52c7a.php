@@ -24,11 +24,10 @@
 </head>
 <body>
     <div class="wrapper d-flex align-items-stretch">
-       
-   
+
      <?php if(auth()->guard()->check()): ?>
-                
-                
+
+
                 <nav id="sidebar">
                     <div class="custom-menu">
                         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -41,31 +40,38 @@
                     </div>
                 </div>
             <ul class="list-unstyled components mb-5">
-            <li>
-                <a href="dashboard.html"><span class="fa fa-home mr-3"></span> Home</a>
+            <li <?php if(Request::route()->getName() == 'home'): ?> class="active" <?php endif; ?>>
+                <a href="<?php echo e(route('home')); ?>"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li>
-                <a href="notifications.html"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Notifications</a>
+                <a href="<?php echo e(route('notifications.index')); ?>"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Notifications</a>
             </li>
             <li>
                 <a href="analytics.html"><span class="fa fa-bar-chart mr-3"></span> Analytics</a>
             </li>
-            <li>
-                <a href="tasks.html"><span class="fa fa-tasks mr-3"></span> Tasks</a>
+
+            <li <?php if(Request::route()->getName() == 'tasks.index'): ?> class="active" <?php endif; ?> >
+                <a href="<?php echo e(route('tasks.index')); ?>"><span class="fa fa-tasks mr-3"></span> Tasks</a>
             </li>
-            <li>
-                <a href="invoices.html"><span class="fa fa-file-excel-o mr-3"></span> Invoices</a>
-            </li>
-            <li>
-                <a href="clients.html"><span class="fa fa-users mr-3"></span> Clients</a>
-            </li>
+
+             <!--Start Check If  User Admin Or Invoice/Clients Manager-->
+                <?php if(Auth::user()->approvement == 1  && (Auth::user()->role == 1) or (Auth::user()->role == 2)): ?>
+                <li>
+                    <a href="invoices.html"><span class="fa fa-file-excel-o mr-3"></span> Invoices</a>
+                </li>
+                <li>
+                    <a href="clients.html"><span class="fa fa-users mr-3"></span> Clients</a>
+                </li>
+                <?php endif; ?>
+            <!--End Check If  User Admin Or Invoice/Clients Manager-->
+
             <li>
                 <a href="usersmanager.html"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
             </li>
             <li>
                 <a href="profile.html"><span class="fa fa-user mr-3"></span> Profile</a>
             </li>
-            <li class="active">
+            <li>
                 <a href="settings.html"><span class="fa fa-cog mr-3"></span> Settings</a>
             </li>
             <li>
@@ -78,12 +84,12 @@
     <?php endif; ?>
     <!-- Page Content  -->
   <div id="content" class="p-4 p-md-5 pt-5">
-  
-   
+
+
     <!--Start Content choice-->
     <?php echo $__env->yieldContent('content'); ?>
      <!--End Content choice-->
-    
+
 
      <?php if(auth()->guard()->check()): ?>
             <!--Start change profile picture Modal-->
@@ -111,10 +117,10 @@
             </div>
             <!--End change profile picture Modal-->
 
-                  <!--Start Logout invoice Modal-->
+                  <!--Start Logout Modal-->
                   <div class="modal fade" id="LogoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LogoutModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        
+
                         <div class="modal-content rounded-0">
                             <div class="modal-header bg-secondary  rounded-0">
                             <h5 class="modal-title" id="LogoutModalLabel">Confirmation!</h5>
@@ -125,31 +131,31 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Cancel</button>
-        
-                            
+
+
                             <a  class="btn btn-info btn-sm rounded-0" href="<?php echo e(route('logout')); ?>"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                             <?php echo e(__('Logout')); ?>
 
                                         </a>
-        
+
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
                                             <?php echo csrf_field(); ?>
                                         </form>
-                                
+
                             </div>
                         </div>
-                        
+
                     </div>
                     </div>
-                    <!--End Logout invoice Modal-->
-            <?php endif; ?>        
+                    <!--End Logout Modal-->
+            <?php endif; ?>
             <footer>Copyright 2019 2021 all rights reserved|AQAMINE DEVELOPER</footer>
             </div>
                 </div>
 
-      
+
 
 <!-- Scripts -->
 <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
@@ -158,7 +164,7 @@
 <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>" defer></script>
 <script src="<?php echo e(asset('js/main.js')); ?>" defer></script>
     <!--***************************************************Old Page End****************************************-->
-    
+
 </body>
 </html>
 <?php /**PATH /Users/aqamine/Desktop/MyBusiness/resources/views/layouts/app.blade.php ENDPATH**/ ?>
