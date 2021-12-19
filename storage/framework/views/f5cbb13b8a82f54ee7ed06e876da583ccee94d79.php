@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card">
-               
+
 
                 <div class="card-body login-page">
                     <form method="POST" action="<?php echo e(route('login')); ?>">
@@ -12,7 +12,7 @@
                         <div  class="row mb-4 mt-2 text-center login-logo"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
                         <div class="row mb-3">
 
-                         
+
                                 <input id="email" type="email" class="form-control rounded-0 <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -34,11 +34,11 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                          
+
                         </div>
 
                         <div class="row mb-3">
-                           
+
 
                                 <input id="password" type="password" class="form-control rounded-0 <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -68,12 +68,12 @@ unset($__errorArgs, $__bag); ?>
                                     <input class="form-check-input rounded-0" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
 
                                     <label class="form-check-label" for="remember">
-                                      <small class="text-secondary"> <?php echo e(__('Remember Me')); ?></small> 
+                                      <small class="text-secondary"> <?php echo e(__('Remember Me')); ?></small>
                                     </label>
                                 </div>
                             </div>
                         </div>
-                    
+
 
                         <div class="row mb-0">
                             <div class="">
@@ -81,7 +81,7 @@ unset($__errorArgs, $__bag); ?>
                                     <?php echo e(__('Login')); ?>
 
                                 </button>
-                             
+                                <a class="btn btn-success rounded-0 btn-block" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
 
                                 <?php if(Route::has('password.request')): ?>
                                     <a class="btn btn-link link-secondary" href="<?php echo e(route('password.request')); ?>">
