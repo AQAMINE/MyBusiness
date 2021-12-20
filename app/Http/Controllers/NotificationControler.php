@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Notification;
 
 class NotificationControler extends Controller
@@ -87,6 +88,8 @@ class NotificationControler extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Remove Notifocation
+        DB::table('notifications')->where('id','=',$id)->delete();
+        return redirect(route('notifications.index'));
     }
 }

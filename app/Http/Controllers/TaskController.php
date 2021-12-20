@@ -59,7 +59,7 @@ class TaskController extends Controller
         //Test User Auth
         if (Auth::check()) {
             // The user is logged in...
-            $notification =  'You have new task to do ' . $request->input('taskTitle');
+            $notification =  'You have new task to do "' . $request->input('taskTitle') . '"';
             $userid = Auth::id();
             $task = new Task();
             $task->user_id = $userid;
