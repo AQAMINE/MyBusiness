@@ -1,0 +1,3 @@
+-Edit Task Characters:Not Supported Edit side
+-Task confirmiation delete messgae
+-Show message (No Record to show) if undone record or task empty

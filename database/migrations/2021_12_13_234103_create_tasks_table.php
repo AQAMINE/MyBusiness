@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('taskTitle'); //Task Title
             $table->text('task'); //Task Content
             $table->boolean('done')->default(0); //Task Done Or Not (0 Not Yet AND 1 Done)
-            $table->integer('doneBy')->nullable(); //Done By User
+            $table->string('doneBy')->nullable(); //Done By User
             $table->integer('privacy')->default(0); //Can All Users Doing It (1.2....userid: For Specific User  AND 0 Public Task)
             $table->timestamps();
         });

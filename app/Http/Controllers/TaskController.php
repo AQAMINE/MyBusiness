@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Traits\NotificationTrait;
 use App\Models\User;
 use App\Models\Task;
@@ -31,9 +32,14 @@ class TaskController extends Controller
         $usersFullNameAndIds  = User::latest()->where('approvement' , 1)->get();
 
         //Get All Tasks
+        if(Auth::user()->role == 1){
+            $tasks = Task::latest()->get();
+        }else{
+            $tasks = Task::latest()->where('privacy',Auth::id())->orWhere('privacy',0)->get();
+        }
 
 
-        return view('app.tasks' , ['usersFullNameAndIds' => $usersFullNameAndIds]);
+        return view('app.tasks' , ['usersFullNameAndIds' => $usersFullNameAndIds],['tasks' => $tasks]);
 
     }
 
@@ -57,7 +63,7 @@ class TaskController extends Controller
     {
         //Add New Task By Admin
         //Test User Auth
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->role == 1 ) {
             // The user is logged in...
             $notification =  'You have new task to do "' . $request->input('taskTitle') . '"';
             $userid = Auth::id();
@@ -117,15 +123,96 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        //get task info to check if exist and send notification
+        $task = Task::find($id);
+        if(is_null($id)){
+            //404 Error
+            return redirect(route('tasks.index'));
+        }else{
+            $notification = 'Task name: ' . $task->taskTitle . ' Deleted!';
+            $this->AddNotification($task->privacy , $notification);
+             //Remove Task Just For Admin Users
+             DB::table('tasks')->where('id','=',$id)->delete();
+            return redirect(route('tasks.index'));
+        }
+        //404 Error
+        return redirect(route('tasks.index'));
+
     }
 
-    public function taskDone($id){
+     /*
+    *Move Task State To Task Done
+    */
 
+    public function taskDone($id){
+        $task = Task::find($id);
+        $notification = 'Task Name: ' . $task->taskTitle . ' Done!';
+        //Admin Users can Done Any Task From Any User
+       if(Auth::user()->role == 1 ){
+            $task = Task::find($id);
+            $task->done = true;
+            $task->save();
+            $this->AddNotification($task->privacy , $notification);
+            return redirect(route('tasks.index'));
+        }
+        //if this task public anyone can move it to done state And Check If this Task For The Auth User
+        if($task->privacy == Auth::id() or $task->privacy == 0){
+                $task->done = 1;
+                $task->save();
+                $this->AddNotification($task->privacy , $notification);
+                return redirect(route('tasks.index'));
+        }
+            return Redirect(route('login'));
     }
 
     public function taskUndone($id){
+        $task = Task::find($id);
+        $notification = 'Task Name: '. $task->taskTitle . ' UnDone!';
+        //Admin Users can UnDone Any Task From Any User
+       if(Auth::user()->role == 1 ){
+            $task = Task::find($id);
+            $task->done = false;
+            $task->save();
+            $this->AddNotification($task->privacy , $notification);
+            return redirect(route('tasks.index'));
+        }
+        //if this task public anyone can move it to Undone state And Check If this Task For The Auth User
+        if($task->privacy == Auth::id() or $task->privacy == 0){
+                $task->done = false;
+                $task->save();
+                $this->AddNotification($task->privacy , $notification);
+                return redirect(route('tasks.index'));
+        }
+            return Redirect(route('login'));
+    }
+
+    public function EditTask(Request $request){
+
+        //just admins can edit task
+        if(Auth::user()->role == 1){
+                //check if task exist or not
+                $id =  Task::find($request->input('id'));
+                $notification = 'Task name: ' . $id->taskTitle . ' Updated!';
+                if(is_null($id)){
+                    //tasknot fund
+                    return redirect(route('tasks.index'));
+                }else{
+                    //update task
+                    $task = Task::find($request->input('id'));
+                    $task->privacy = $request->input('foruser');
+                    $task->taskTitle = $request->input('tasktitle');
+                    $task->task = $request->input('taskcontent');
+                    $task->save();
+                    $this->AddNotification($id->privacy , $notification);
+                    return redirect(route('tasks.index'));
+                }
+
+        }else{
+            return  redirect(route('tasks.index'));
+        }
 
     }
+
 
 }

@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 //Start Tasks Routes
 Route::get('tasks' , 'TaskController@index');
+Route::get('tasks/{id}' , 'TaskController@taskDone')->name('TaskDone');
+Route::get('task/{id}' ,'TaskController@taskUndone')->name('TaskUndone');
+Route::post('task/edit' , 'TaskController@EditTask')->name('UpdateTask');
 //End Tasks Routes
 
 //Start Resource  Controller

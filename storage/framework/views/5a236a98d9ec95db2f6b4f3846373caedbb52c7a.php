@@ -160,8 +160,7 @@
 <!-- Scripts -->
 <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 <script src="<?php echo e(asset('js/jquery.min.js')); ?>" defer></script>
-<script src="<?php echo e(asset('js/popper.js')); ?>" defer></script>
-<script src="<?php echo e(asset('js/bootstrap.min.js')); ?>" defer></script>
+
 <script src="<?php echo e(asset('js/main.js')); ?>" defer></script>
     <!--***************************************************Old Page End****************************************-->
 
