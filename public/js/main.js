@@ -32,8 +32,6 @@ window.$(document).ready(function(){
 
 
 
-
-
    });
 
 

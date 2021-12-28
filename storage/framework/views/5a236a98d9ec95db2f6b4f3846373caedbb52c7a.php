@@ -36,7 +36,7 @@
                 <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                     <div class="user-logo">
                         <div class="img  "style="background-image: url(images/logo.jpg);" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"> <div class="img blacks" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><a class="Link_call_Modal_PDP" href="#" data-bs-target="#changeProfilePictureModal" data-bs-toggle="modal"><small>Change</small></a></div></div>
-                        <h3>Amine Aqebli</h3>
+                        <h3><?php echo e(Auth::user()->name." ".Auth::user()->firstname); ?></h3>
                     </div>
                 </div>
             <ul class="list-unstyled components mb-5">
@@ -160,7 +160,6 @@
 <!-- Scripts -->
 <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 <script src="<?php echo e(asset('js/jquery.min.js')); ?>" defer></script>
-
 <script src="<?php echo e(asset('js/main.js')); ?>" defer></script>
     <!--***************************************************Old Page End****************************************-->
 

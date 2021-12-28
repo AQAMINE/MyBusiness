@@ -28,7 +28,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //Get Users Full Name And Id For SelectBox Option (Edit  And Add)
+        //Get Users Full Name And Id For SelectBox Option (Edit  And Add Task)
         $usersFullNameAndIds  = User::latest()->where('approvement' , 1)->get();
 
         //Get All Tasks
@@ -77,7 +77,8 @@ class TaskController extends Controller
             return redirect(route('tasks.index'));
 
         }else{
-            return view('login');
+            //This user not have permession to add task(Just Admins cant add tasks)
+            return abort(404, 'Page not found.');
         }
     }
 
@@ -126,9 +127,9 @@ class TaskController extends Controller
 
         //get task info to check if exist and send notification
         $task = Task::find($id);
-        if(is_null($id)){
+        if(is_null($task)){
             //404 Error
-            return redirect(route('tasks.index'));
+            return abort(404, 'Page not found.');
         }else{
             $notification = 'Task name: ' . $task->taskTitle . ' Deleted!';
             $this->AddNotification($task->privacy , $notification);
@@ -137,7 +138,7 @@ class TaskController extends Controller
             return redirect(route('tasks.index'));
         }
         //404 Error
-        return redirect(route('tasks.index'));
+        return abort(404, 'Page not found.');
 
     }
 
@@ -147,44 +148,54 @@ class TaskController extends Controller
 
     public function taskDone($id){
         $task = Task::find($id);
-        $notification = 'Task Name: ' . $task->taskTitle . ' Done!';
-        //Admin Users can Done Any Task From Any User
-       if(Auth::user()->role == 1 ){
-            $task = Task::find($id);
-            $task->done = true;
-            $task->save();
-            $this->AddNotification($task->privacy , $notification);
-            return redirect(route('tasks.index'));
-        }
-        //if this task public anyone can move it to done state And Check If this Task For The Auth User
-        if($task->privacy == Auth::id() or $task->privacy == 0){
-                $task->done = 1;
+        if(!is_null($task)){
+            $notification = 'Task Name: ' . $task->taskTitle . ' Done!';
+            //Admin Users can Done Any Task From Any User
+           if(Auth::user()->role == 1 ){
+                $task = Task::find($id);
+                $task->done = true;
                 $task->save();
                 $this->AddNotification($task->privacy , $notification);
                 return redirect(route('tasks.index'));
+            }
+            //if this task public anyone can move it to done state And Check If this Task For The Auth User
+            if($task->privacy == Auth::id() or $task->privacy == 0){
+                    $task->done = 1;
+                    $task->save();
+                    $this->AddNotification($task->privacy , $notification);
+                    return redirect(route('tasks.index'));
+            }
+        }else{
+           return abort(404, 'Page not found.');
         }
-            return Redirect(route('login'));
+
+            return abort(404, 'Page not found.');
     }
 
     public function taskUndone($id){
         $task = Task::find($id);
-        $notification = 'Task Name: '. $task->taskTitle . ' UnDone!';
-        //Admin Users can UnDone Any Task From Any User
-       if(Auth::user()->role == 1 ){
-            $task = Task::find($id);
-            $task->done = false;
-            $task->save();
-            $this->AddNotification($task->privacy , $notification);
-            return redirect(route('tasks.index'));
-        }
-        //if this task public anyone can move it to Undone state And Check If this Task For The Auth User
-        if($task->privacy == Auth::id() or $task->privacy == 0){
+        if(!is_null($task)){
+            $notification = 'Task Name: '. $task->taskTitle . ' UnDone!';
+             //Admin Users can UnDone Any Task From Any User
+            if(Auth::user()->role == 1 ){
+                $task = Task::find($id);
                 $task->done = false;
                 $task->save();
                 $this->AddNotification($task->privacy , $notification);
                 return redirect(route('tasks.index'));
+            }
+            //if this task public anyone can move it to Undone state And Check If this Task For The Auth User
+            if($task->privacy == Auth::id() or $task->privacy == 0){
+                    $task->done = false;
+                    $task->save();
+                    $this->AddNotification($task->privacy , $notification);
+                    return redirect(route('tasks.index'));
+             }
+        }else{
+            return abort(404, 'Page not found.');
         }
-            return Redirect(route('login'));
+
+            return abort(404, 'Page not found.');
     }
 
     public function EditTask(Request $request){
@@ -193,11 +204,11 @@ class TaskController extends Controller
         if(Auth::user()->role == 1){
                 //check if task exist or not
                 $id =  Task::find($request->input('id'));
-                $notification = 'Task name: ' . $id->taskTitle . ' Updated!';
                 if(is_null($id)){
                     //tasknot fund
-                    return redirect(route('tasks.index'));
+                    return abort(404, 'Page not found.');
                 }else{
+                    $notification = 'Task name: ' . $id->taskTitle . ' Updated!';
                     //update task
                     $task = Task::find($request->input('id'));
                     $task->privacy = $request->input('foruser');
@@ -209,7 +220,7 @@ class TaskController extends Controller
                 }
 
         }else{
-            return  redirect(route('tasks.index'));
+            return abort(404, 'Page not found.');
         }
 
     }

@@ -23,12 +23,12 @@ class invoiceAndClientManagerMiddleware
             if((Auth::user()->role == 1) or (Auth::user()->role == 2) ){
                 return $next($request);
             }else{
-                return redirect(route('login'));
+                return abort(404, 'Page not found.');
             }
         }else{
             return redirect(route('login'));
         }
-        
-       
+
+
     }
 }
