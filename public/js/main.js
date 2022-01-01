@@ -5,7 +5,16 @@ function EditTask(id,foruser,tasktitle,task){
     $('#taskTitleEdit').val(tasktitle);
     $('#TaskContentEdit').val(task);
 }
+//input zone value for update (Client)
+function EditClient(id,firstname,lastname,phone,city,rating){
+    $('#idEdit').val(id);
+    $('#firstname').val(firstname);
+    $('#lastname').val(lastname);
+    $('#phone').val(phone);
+    $('#city').val(city);
+    $('#rating').val(rating);
 
+}
 window.$(document).ready(function(){
 	"use strict";
 

@@ -38,8 +38,9 @@ class TaskController extends Controller
             $tasks = Task::latest()->where('privacy',Auth::id())->orWhere('privacy',0)->get();
         }
 
+        $notificationCounter = $this->NotificationCounter();
+        return view('app.tasks' , compact(['usersFullNameAndIds', 'tasks','notificationCounter']));
 
-        return view('app.tasks' , ['usersFullNameAndIds' => $usersFullNameAndIds],['tasks' => $tasks]);
 
     }
 

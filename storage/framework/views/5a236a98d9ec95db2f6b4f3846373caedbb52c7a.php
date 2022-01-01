@@ -44,7 +44,7 @@
                 <a href="<?php echo e(route('home')); ?>"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li>
-                <a href="<?php echo e(route('notifications.index')); ?>"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Notifications</a>
+                <a href="<?php echo e(route('notifications.index')); ?>"><span class="fa fa-bell mr-3 notif"><small class="d-flex align-items-center justify-content-center"><?php echo e($notificationCounter); ?></small></span> Notifications</a>
             </li>
             <li>
                 <a href="analytics.html"><span class="fa fa-bar-chart mr-3"></span> Analytics</a>
@@ -60,7 +60,7 @@
                     <a href="invoices.html"><span class="fa fa-file-excel-o mr-3"></span> Invoices</a>
                 </li>
                 <li>
-                    <a href="clients.html"><span class="fa fa-users mr-3"></span> Clients</a>
+                    <a href="<?php echo e(route('client.index')); ?>"><span class="fa fa-users mr-3"></span> Clients</a>
                 </li>
                 <?php endif; ?>
             <!--End Check If  User Admin Or Invoice/Clients Manager-->

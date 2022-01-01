@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Start Clients Routes
+Route::post('client/edit' , 'ClientController@EditClient')->name('EditTask');
+Route::post('client/find/' , 'ClientController@FindClient')->name('FindClient');
+//End Clients Routes
 
 //Start Tasks Routes
 Route::get('tasks' , 'TaskController@index');
@@ -26,6 +30,7 @@ Route::post('task/edit' , 'TaskController@EditTask')->name('UpdateTask');
 //End Tasks Routes
 
 //Start Resource  Controller
+Route::resource('/client','ClientController');
 Route::resource('/tasks', 'TaskController');
 Route::resource('/notifications', 'NotificationControler');
 //End  Resource Controller

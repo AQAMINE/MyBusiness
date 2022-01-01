@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Traits\NotificationTrait;
 
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    use NotificationTrait;
     /**
      * Create a new controller instance.
      *
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $notificationCounter = $this->NotificationCounter();
+        return view('home',['notificationCounter' => $notificationCounter]);
     }
 }

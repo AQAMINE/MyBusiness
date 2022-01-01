@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Notification;
+use App\Http\Traits\NotificationTrait;
 
 class NotificationControler extends Controller
 {
+    use NotificationTrait;
     public function __construct(){
         $this->middleware('auth');
     }
@@ -22,7 +24,8 @@ class NotificationControler extends Controller
         //Find All Notification For This User
         $AllNotifications = Notification::latest()->where('user_id' , Auth::id())->get();
         //Return All Notification
-        return view('app.notifications',['AllNotifications' => $AllNotifications]);
+        $notificationCounter = $this->NotificationCounter();
+        return view('app.notifications', ['AllNotifications' => $AllNotifications],['notificationCounter' => $notificationCounter]);
     }
 
     /**
