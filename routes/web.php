@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/test', function () {
+    return view('welcome');
+});
+
 //Start Clients Routes
 Route::post('client/edit' , 'ClientController@EditClient')->name('EditTask');
 Route::post('client/find/' , 'ClientController@FindClient')->name('FindClient');
