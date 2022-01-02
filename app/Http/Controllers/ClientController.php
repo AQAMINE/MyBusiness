@@ -33,7 +33,7 @@ class ClientController extends Controller
         }else{
             return abort(404, 'Page not found.');
         }
-
+        return abort(404, 'Page not found.');
     }
 
     /**
@@ -157,7 +157,26 @@ public function EditClient(Request $request){
     }
 
     public function FindClient(Request $request){
-        return $request->input('keywordToFind');
+        $keyword = $request->input('keywordToFind');
+
+        if(Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1 ){
+
+            //Start The olde block
+
+            $clients = client::where('lastname', $keyword)
+    ->orWhere('firstname', 'like', '%' . $keyword . '%')
+    ->orWhere('lastname', 'like', '%' . $keyword . '%')
+    ->orWhere('city', 'like', '%' . $keyword . '%')
+    ->orWhere('phone', 'like', '%' . $keyword . '%')->get();
+            // $clients = DB::select("SELECT *  FROM clients  WHERE  firstname LIKE '%$keyword%' OR lastname LIKE '%$keyword%' OR phone LIKE '%$keyword%' OR city LIKE '%$keyword%' ",[$keyword],[$keyword],[$keyword],[$keyword]);
+            //End The old block
+            $notificationCounter = $this->NotificationCounter();
+            return view('app.clients', ['clients' => $clients],['notificationCounter' => $notificationCounter]);
+        }else{
+            return abort(404, 'Page not found.');
+        }
+        return abort(404, 'Page not found.');
 
     }
+
 }

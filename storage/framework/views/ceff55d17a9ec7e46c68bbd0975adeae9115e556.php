@@ -15,54 +15,57 @@
             </div>
         </form>
           <!--Start clients table-->
+          <?php if(!$clients->isEmpty()): ?>
+                <table class="table table-dark text-center">
+                <thead>
+                    <tr>
+                    <th scope="col">Create Date</th>
+                    <th scope="col">FullName</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Total amount</th>
+                    <th scope="col">Create By user</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            <table class="table table-dark text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Create Date</th>
-                  <th scope="col">FullName</th>
-                  <th scope="col">Phone number</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Total amount</th>
-                  <th scope="col">Create By user</th>
-                  <th scope="col">Rating</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Remove</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php if($clients->isEmpty()): ?>
-                    <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> No <strong>clients</strong> to show</h5>
-                <?php else: ?>
-                    <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr>
-                            <th scope="row"><?php echo e($client->created_at); ?></th>
-                            <td><?php echo e($client->firstname .' ' . $client->lastname); ?></td>
-                            <td><?php echo e($client->phone); ?></td>
-                            <td><?php echo e($client->city); ?></td>
-                            <td><?php echo e($client->totalAmount); ?></td>
-                            <td><?php echo e($client->user->name .' ' . $client->user->firstname); ?></td>
-                            <td>
-                                <?php for($i = 0; $i < $client->rating; $i++): ?>
-                                    <i class="fa fa-star"></i>
-                                <?php endfor; ?>
-                               </td>
-                            <td><a href="#" class="btn btn-success btn-sm  rounded-0" onclick="EditClient(<?php echo e($client->id); ?>,'<?php echo e($client->firstname); ?>','<?php echo e($client->lastname); ?>','<?php echo e($client->phone); ?>','<?php echo e($client->city); ?>',<?php echo e($client->rating); ?>)" data-bs-toggle="modal" data-bs-target="#AddEditClientModal">Edit</a></td>
-                            <td><form action="<?php echo e(Route('client.destroy',$client->id)); ?>" method="POST" style="display: inline-block">
-                                <?php echo e(csrf_field()); ?>
+                        <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr>
+                                    <th scope="row"><?php echo e($client->created_at); ?></th>
+                                    <td><?php echo e($client->firstname .' ' . $client->lastname); ?></td>
+                                    <td><?php echo e($client->phone); ?></td>
+                                    <td><?php echo e($client->city); ?></td>
+                                    <td><?php echo e($client->totalAmount); ?></td>
+                                    <td><?php echo e($client->user->name .' ' . $client->user->firstname); ?></td>
+                                    <td>
+                                        <?php for($i = 0; $i < $client->rating; $i++): ?>
+                                            <i class="fa fa-star"></i>
+                                        <?php endfor; ?>
+                                    </td>
+                                    <td><a href="#" class="btn btn-success btn-sm  rounded-0" onclick="EditClient(<?php echo e($client->id); ?>,'<?php echo e($client->firstname); ?>','<?php echo e($client->lastname); ?>','<?php echo e($client->phone); ?>','<?php echo e($client->city); ?>',<?php echo e($client->rating); ?>)" data-bs-toggle="modal" data-bs-target="#AddEditClientModal">Edit</a></td>
+                                    <td><form action="<?php echo e(Route('client.destroy',$client->id)); ?>" method="POST" style="display: inline-block">
+                                        <?php echo e(csrf_field()); ?>
 
-                                        <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" onclick="return confirm('Sure you want to remove this task?','Warning!')" class="btn btn-danger btn-sm rounded-0 text-light">Delete</button>
-                            </form></td>
-                        </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <?php endif; ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" onclick="return confirm('Sure you want to remove this task?','Warning!')" class="btn btn-danger btn-sm rounded-0 text-light">Delete</button>
+                                    </form></td>
+                                </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 
 
-              </tbody>
-            </table>
+
+
+
+                </tbody>
+                </table>
+            <?php else: ?>
+                 <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> No <strong>clients</strong> to show</h5>
+            <?php endif; ?>
           <!--End clients table-->
 
           <!--Start New Client Modal-->

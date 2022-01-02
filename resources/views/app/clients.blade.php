@@ -16,53 +16,56 @@
             </div>
         </form>
           <!--Start clients table-->
+          @if(!$clients->isEmpty())
+                <table class="table table-dark text-center">
+                <thead>
+                    <tr>
+                    <th scope="col">Create Date</th>
+                    <th scope="col">FullName</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Total amount</th>
+                    <th scope="col">Create By user</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            <table class="table table-dark text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Create Date</th>
-                  <th scope="col">FullName</th>
-                  <th scope="col">Phone number</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Total amount</th>
-                  <th scope="col">Create By user</th>
-                  <th scope="col">Rating</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Remove</th>
-                </tr>
-              </thead>
-              <tbody>
-                @if ($clients->isEmpty())
-                    <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> No <strong>clients</strong> to show</h5>
-                @else
-                    @foreach ($clients as $client)
-                        <tr>
-                            <th scope="row">{{$client->created_at}}</th>
-                            <td>{{$client->firstname .' ' . $client->lastname}}</td>
-                            <td>{{$client->phone}}</td>
-                            <td>{{$client->city}}</td>
-                            <td>{{$client->totalAmount}}</td>
-                            <td>{{$client->user->name .' ' . $client->user->firstname}}</td>
-                            <td>
-                                @for ($i = 0; $i < $client->rating; $i++)
-                                    <i class="fa fa-star"></i>
-                                @endfor
-                               </td>
-                            <td><a href="#" class="btn btn-success btn-sm  rounded-0" onclick="EditClient({{$client->id}},'{{$client->firstname}}','{{$client->lastname}}','{{$client->phone}}','{{$client->city}}',{{$client->rating}})" data-bs-toggle="modal" data-bs-target="#AddEditClientModal">Edit</a></td>
-                            <td><form action="{{Route('client.destroy',$client->id)}}" method="POST" style="display: inline-block">
-                                {{csrf_field()}}
-                                        <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" onclick="return confirm('Sure you want to remove this task?','Warning!')" class="btn btn-danger btn-sm rounded-0 text-light">Delete</button>
-                            </form></td>
-                        </tr>
-                    @endforeach
-                @endif
+                        @foreach ($clients as $client)
+                                <tr>
+                                    <th scope="row">{{$client->created_at}}</th>
+                                    <td>{{$client->firstname .' ' . $client->lastname}}</td>
+                                    <td>{{$client->phone}}</td>
+                                    <td>{{$client->city}}</td>
+                                    <td>{{$client->totalAmount}}</td>
+                                    <td>{{$client->user->name .' ' . $client->user->firstname}}</td>
+                                    <td>
+                                        @for ($i = 0; $i < $client->rating; $i++)
+                                            <i class="fa fa-star"></i>
+                                        @endfor
+                                    </td>
+                                    <td><a href="#" class="btn btn-success btn-sm  rounded-0" onclick="EditClient({{$client->id}},'{{$client->firstname}}','{{$client->lastname}}','{{$client->phone}}','{{$client->city}}',{{$client->rating}})" data-bs-toggle="modal" data-bs-target="#AddEditClientModal">Edit</a></td>
+                                    <td><form action="{{Route('client.destroy',$client->id)}}" method="POST" style="display: inline-block">
+                                        {{csrf_field()}}
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" onclick="return confirm('Sure you want to remove this task?','Warning!')" class="btn btn-danger btn-sm rounded-0 text-light">Delete</button>
+                                    </form></td>
+                                </tr>
+                            @endforeach
 
 
 
 
-              </tbody>
-            </table>
+
+
+
+                </tbody>
+                </table>
+            @else
+                 <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> No <strong>clients</strong> to show</h5>
+            @endif
           <!--End clients table-->
 
           <!--Start New Client Modal-->

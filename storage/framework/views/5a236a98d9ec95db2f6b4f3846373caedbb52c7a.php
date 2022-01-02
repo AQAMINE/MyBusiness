@@ -69,6 +69,9 @@
                 <a href="usersmanager.html"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
             </li>
             <li>
+                <a href="usersmanager.html"><span class="fa fa-bullhorn mr-3"></span> To all employers</a>
+            </li>
+            <li>
                 <a href="profile.html"><span class="fa fa-user mr-3"></span> Profile</a>
             </li>
             <li>
