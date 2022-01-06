@@ -65,9 +65,11 @@
                 @endif
             <!--End Check If  User Admin Or Invoice/Clients Manager-->
 
+            @if (Auth::user()->approvement == 1  && Auth::user()->role == 1)
             <li>
-                <a href="usersmanager.html"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
+                <a href="{{route('user.index')}}"><span class="fa fa-address-book mr-3"></span> Users Manager</a>
             </li>
+            @endif
             <li>
                 <a href="usersmanager.html"><span class="fa fa-bullhorn mr-3"></span> To all employers</a>
             </li>

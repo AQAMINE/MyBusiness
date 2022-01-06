@@ -33,6 +33,7 @@ Route::post('task/edit' , 'TaskController@EditTask')->name('UpdateTask');
 Route::resource('/client','ClientController');
 Route::resource('/tasks', 'TaskController');
 Route::resource('/notifications', 'NotificationControler');
+Route::resource('/user', 'UserController');
 //End  Resource Controller
 
 Auth::routes();
