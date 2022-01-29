@@ -16,21 +16,30 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+// Start Notification Routes
+Route::post('clear/notifications','NotificationControler@removeAll')->name('clearNotifications');
+// End Notification Routes
+
+//Start Users Route
+Route::post('/User/find', 'UserController@findUser')->name('find.user');
+Route::post('EditProfilePicture/', 'UserController@ChangeProfilePic')->name('EditProfilePicture');
+Route::post('UpdateUser', 'UserController@UpdateUser')->name('UpdateUser');
+//End Users Route
 
 //Start Clients Routes
-Route::post('client/edit' , 'ClientController@EditClient')->name('EditTask');
-Route::post('client/find/' , 'ClientController@FindClient')->name('FindClient');
+Route::post('client/edit', 'ClientController@EditClient')->name('EditTask');
+Route::post('client/find/', 'ClientController@FindClient')->name('FindClient');
 //End Clients Routes
 
 //Start Tasks Routes
-Route::get('tasks' , 'TaskController@index');
-Route::get('tasks/{id}' , 'TaskController@taskDone')->name('TaskDone');
-Route::get('task/{id}' ,'TaskController@taskUndone')->name('TaskUndone');
-Route::post('task/edit' , 'TaskController@EditTask')->name('UpdateTask');
+Route::get('tasks', 'TaskController@index');
+Route::get('tasks/{id}', 'TaskController@taskDone')->name('TaskDone');
+Route::get('task/{id}', 'TaskController@taskUndone')->name('TaskUndone');
+Route::post('task/edit', 'TaskController@EditTask')->name('UpdateTask');
 //End Tasks Routes
 
 //Start Resource  Controller
-Route::resource('/client','ClientController');
+Route::resource('/client', 'ClientController');
 Route::resource('/tasks', 'TaskController');
 Route::resource('/notifications', 'NotificationControler');
 Route::resource('/user', 'UserController');

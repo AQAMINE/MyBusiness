@@ -95,4 +95,9 @@ class NotificationControler extends Controller
         DB::table('notifications')->where('id','=',$id)->delete();
         return redirect(route('notifications.index'));
     }
+
+    public function removeAll(request $request){
+        DB::table('notifications')->where('user_id','=',Auth::id())->delete();
+        return redirect(route('notifications.index'));
+    }
 }

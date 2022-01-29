@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('role')->default(3);
             $table->text('role_incompany')->nullable();
-            $table->text('profile_pic')->nullable();
+            $table->text('profile_pic')->default('default-user-image.png');
             $table->text('id_card')->nullable();
             $table->string('cin')->unique();
             $table->boolean('approvement')->default(0);

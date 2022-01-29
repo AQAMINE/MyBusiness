@@ -164,10 +164,10 @@ public function EditClient(Request $request){
             //Start The olde block
 
             $clients = client::where('lastname', $keyword)
-    ->orWhere('firstname', 'like', '%' . $keyword . '%')
-    ->orWhere('lastname', 'like', '%' . $keyword . '%')
-    ->orWhere('city', 'like', '%' . $keyword . '%')
-    ->orWhere('phone', 'like', '%' . $keyword . '%')->get();
+                ->orWhere('firstname', 'like', '%' . $keyword . '%')
+                ->orWhere('lastname', 'like', '%' . $keyword . '%')
+                ->orWhere('city', 'like', '%' . $keyword . '%')
+                ->orWhere('phone', 'like', '%' . $keyword . '%')->get();
             // $clients = DB::select("SELECT *  FROM clients  WHERE  firstname LIKE '%$keyword%' OR lastname LIKE '%$keyword%' OR phone LIKE '%$keyword%' OR city LIKE '%$keyword%' ",[$keyword],[$keyword],[$keyword],[$keyword]);
             //End The old block
             $notificationCounter = $this->NotificationCounter();
@@ -176,6 +176,7 @@ public function EditClient(Request $request){
             return abort(404, 'Page not found.');
         }
         return abort(404, 'Page not found.');
+
 
     }
 

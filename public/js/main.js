@@ -13,6 +13,28 @@ function EditClient(id,firstname,lastname,phone,city,rating){
     $('#phone').val(phone);
     $('#city').val(city);
     $('#rating').val(rating);
+}
+
+//input zone value for update (Users)
+function EditUser(id,name,firstname,username,email,phone,role,cin,approvement){
+    $('#idEdit').val(id);
+    $('#name').val(name);
+    $('#firstname').val(firstname);
+    $('#username').val(username);
+    $('#email').val(email);
+    $('#phone').val(phone);
+    $('#role').val(role);
+    $('#cin').val(cin);
+
+    if(approvement == 1){ $('#approvement').prop('checked', true) }else if(approvement == 0){$('#approvement').prop('checked', false)};
+}
+
+// Move Remove link To Modal Message
+function movedata(DeletedItem){
+    // let item = $("a".this).attr("href");
+
+
+    $("#deleteForm").attr("action",DeletedItem);
 
 }
 window.$(document).ready(function(){
