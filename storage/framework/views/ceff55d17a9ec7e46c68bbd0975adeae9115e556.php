@@ -53,7 +53,8 @@
                             </td>
                             <td><a href="#" class="btn btn-success btn-sm  rounded-0"
                                     onclick="EditClient(<?php echo e($client->id); ?>,'<?php echo e($client->firstname); ?>','<?php echo e($client->lastname); ?>','<?php echo e($client->phone); ?>','<?php echo e($client->city); ?>',<?php echo e($client->rating); ?>)"
-                                    data-bs-toggle="modal" data-bs-target="#AddEditClientModal">Edit</a></td>
+                                    data-bs-toggle="modal" data-bs-target="#AddEditClientModal"><i class="fa fa-edit"></i>
+                                    Edit</a></td>
                             <td>
                                 <form action="<?php echo e(Route('client.destroy', $client->id)); ?>" method="POST"
                                     style="display: inline-block">
@@ -62,23 +63,18 @@
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit"
                                         onclick="return confirm('Sure you want to remove this task?','Warning!')"
-                                        class="btn btn-danger btn-sm rounded-0 text-light">Delete</button>
+                                        class="btn btn-danger btn-sm rounded-0 text-light"><i class="fa fa-trash"></i>
+                                        Delete</button>
                                 </form>
                             </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
-
-
-
-
-
                 </tbody>
             </table>
         <?php else: ?>
             <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> No
-                <strong>clients</strong> to show</h5>
+                <strong>clients</strong> to show
+            </h5>
         <?php endif; ?>
         <!--End clients table-->
 
@@ -133,8 +129,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm text-light rounded-0" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submet" class="btn btn-success btn-sm rounded-0">Add Client</button>
+                            <a class="btn btn-secondary btn-sm text-light rounded-0" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submet" class="btn btn-success btn-sm rounded-0"><i class="fa fa-plus"></i> Add Client</button>
                         </div>
                     </div>
                 </form>
@@ -196,8 +192,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm text-light rounded-0" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0">Edit Client</button>
+                            <a class="btn btn-secondary btn-sm text-light rounded-0" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i> Edit Client</button>
                         </div>
                     </div>
                 </form>
@@ -223,8 +219,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm rounded-0"
-                                data-bs-dismiss="modal">Cancel</button>
-                            <a class="btn btn-danger btn-sm rounded-0">Remove client</a>
+                                data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</button>
+                            <a class="btn btn-danger btn-sm rounded-0"><i class="fa fa-trash"></i> Remove client</a>
                         </div>
                     </div>
                 </form>

@@ -31,11 +31,10 @@ function EditUser(id,name,firstname,username,email,phone,role,cin,approvement){
 
 // Move Remove link To Modal Message
 function movedata(DeletedItem){
-    // let item = $("a".this).attr("href");
-
-
     $("#deleteForm").attr("action",DeletedItem);
-
+}
+function transferDataToModal(formId,root){
+    $(formId).attr("action",root);
 }
 window.$(document).ready(function(){
 	"use strict";

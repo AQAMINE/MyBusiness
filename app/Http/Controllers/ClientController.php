@@ -12,10 +12,10 @@ class ClientController extends Controller
 {
     use NotificationTrait;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('invoiceandclientmanager');
-
     }
 
     /**
@@ -26,11 +26,11 @@ class ClientController extends Controller
     public function index()
     {
         //
-        if(Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1 ){
+        if (Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1) {
             $clients = client::latest()->get();
             $notificationCounter = $this->NotificationCounter();
-            return view('app.clients', ['clients' => $clients],['notificationCounter' => $notificationCounter]);
-        }else{
+            return view('app.clients', ['clients' => $clients], ['notificationCounter' => $notificationCounter]);
+        } else {
             return abort(404, 'Page not found.');
         }
         return abort(404, 'Page not found.');
@@ -55,14 +55,14 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         //check
-        $this->validate($request,[
+        $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
             'phone' => 'required|unique:clients',
             'city' => 'required',
             'rating' => 'required'
         ]);
-        if(Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1 ){
+        if (Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1) {
             $client = new client();
             $client->firstname = $request->input('firstname');
             $client->lastname = $request->input('lastname');
@@ -70,36 +70,35 @@ class ClientController extends Controller
             $client->city = $request->input('city');
             $client->rating = $request->input('rating');
             $client->user_id = Auth::id();
-            $notification = 'You add new client '. $request->input('firstname') . ' ' . $request->input('lastname');
+            $notification = 'You add new client ' . $request->input('firstname') . ' ' . $request->input('lastname');
             $client->save();
-            $this->AddNotification(Auth::id() , $notification);
+            $this->AddNotification(Auth::id(), $notification);
             return redirect(route('client.index'));
-        }else{
+        } else {
             return abort(404, 'Page not found.');
         }
-
     }
-public function EditClient(Request $request){
-    if(Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1){
-        $client = client::find($request->input('id'));
-        if(!is_null($client)){
-            $client->firstname = $request->input('firstname');
-            $client->lastname = $request->input('lastname');
-            $client->phone = $request->input('phone');
-            $client->city = $request->input('city');
-            $client->rating = $request->input('rating');
-            $notification = 'client Updated Id: '. $request->input('id') ;
-            $client->save();
-            $this->AddNotification(Auth::id() , $notification);
-            return redirect(route('client.index'));
-        }else{
+    public function EditClient(Request $request)
+    {
+        if (Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1) {
+            $client = client::find($request->input('id'));
+            if (!is_null($client)) {
+                $client->firstname = $request->input('firstname');
+                $client->lastname = $request->input('lastname');
+                $client->phone = $request->input('phone');
+                $client->city = $request->input('city');
+                $client->rating = $request->input('rating');
+                $notification = 'client Updated Id: ' . $request->input('id');
+                $client->save();
+                $this->AddNotification(Auth::id(), $notification);
+                return redirect(route('client.index'));
+            } else {
+                return abort(404, 'Page not found.');
+            }
+        } else {
             return abort(404, 'Page not found.');
         }
-    }else{
-        return abort(404, 'Page not found.');
     }
-
-}
     /**
      * Display the specified resource.
      *
@@ -144,22 +143,23 @@ public function EditClient(Request $request){
     {
         //
         $client =  client::find($id);
-        if(is_null($client)){
-              //404 Error
-              return abort(404, 'Page not found.');
-        }else{
-            $notification = 'You are deleted This Client : ' . $client->firstname . ' '. $client->firlastnamestname ;
-            $this->AddNotification(Auth::id() , $notification);
-            DB::table('clients')->where('id','=',$id)->delete();
+        if (is_null($client)) {
+            //404 Error
+            return abort(404, 'Page not found.');
+        } else {
+            $notification = 'You are deleted This Client : ' . $client->firstname . ' ' . $client->firlastnamestname;
+            $this->AddNotification(Auth::id(), $notification);
+            DB::table('clients')->where('id', '=', $id)->delete();
             return redirect(route('client.index'));
         }
         return abort(404, 'Page not found.');
     }
 
-    public function FindClient(Request $request){
+    public function FindClient(Request $request)
+    {
         $keyword = $request->input('keywordToFind');
 
-        if(Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1 ){
+        if (Auth::user()->role == 1 || Auth::user()->role == 2 && Auth::user()->approvement == 1) {
 
             //Start The olde block
 
@@ -171,13 +171,10 @@ public function EditClient(Request $request){
             // $clients = DB::select("SELECT *  FROM clients  WHERE  firstname LIKE '%$keyword%' OR lastname LIKE '%$keyword%' OR phone LIKE '%$keyword%' OR city LIKE '%$keyword%' ",[$keyword],[$keyword],[$keyword],[$keyword]);
             //End The old block
             $notificationCounter = $this->NotificationCounter();
-            return view('app.clients', ['clients' => $clients],['notificationCounter' => $notificationCounter]);
-        }else{
+            return view('app.clients', ['clients' => $clients], ['notificationCounter' => $notificationCounter]);
+        } else {
             return abort(404, 'Page not found.');
         }
         return abort(404, 'Page not found.');
-
-
     }
-
 }

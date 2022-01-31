@@ -1,24 +1,21 @@
 <?php $__env->startSection('content'); ?>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header"><?php echo e(__('Dashboard')); ?></div>
+        <h1>News <i class="fa fa-newspaper-o"></i></h1>
+                <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="card text-white bg-dark mb-3 rounded-0">
+                    <div class="card-header">
+                        <small class="badge bg-primary text-light">By: <?php echo e($ad->user->name); ?> <?php echo e($ad->user->firstname); ?></small>
+                        <small class="badge bg-light text-dark"><?php echo e($ad->created_at->diffForHumans()); ?></small>
+                    </div>
 
                     <div class="card-body">
-                        <?php if(session('status')): ?>
-                            <div class="alert alert-success" role="alert">
-                                <?php echo e(session('status')); ?>
-
-                            </div>
-                        <?php endif; ?>
-
-                        <?php echo e(__('You are logged in!')); ?>
-
+                        <!--<h5 class="card-title">Info card title</h5>-->
+                        <p class="card-text"><?php echo e($ad->content); ?></p>
                     </div>
+
                 </div>
-            </div>
-        </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
     </div>
 <?php $__env->stopSection(); ?>
 

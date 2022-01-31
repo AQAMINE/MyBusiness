@@ -2,3 +2,15 @@
 -Task confirmiation delete messgae
 -Show message (No Record to show) if undone record or task empty
 -User Update Validation (Email And UserName And Phone number)
+
+
+-------------------------------------------------------Added--------------------------------
+LocalAds Model
+    id
+    content
+    status (active/hidden) boolean value
+    End_date time
+    user_id
+add switch hide/show not working (Local AD)
+dahbord show the ads in the date
+localadsmanager add delete hide

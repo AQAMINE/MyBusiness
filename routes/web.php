@@ -38,7 +38,12 @@ Route::get('task/{id}', 'TaskController@taskUndone')->name('TaskUndone');
 Route::post('task/edit', 'TaskController@EditTask')->name('UpdateTask');
 //End Tasks Routes
 
+// Start LocalAds Routes
+Route::get('loacl/ad/hide/show/{id}' , 'LocalAdsController@hideShowLocalAd')->name('HideShowLocalAd');
+// End LocalAds Routes
+
 //Start Resource  Controller
+Route::resource('/LocalAds', 'LocalAdsController');
 Route::resource('/client', 'ClientController');
 Route::resource('/tasks', 'TaskController');
 Route::resource('/notifications', 'NotificationControler');

@@ -47,17 +47,17 @@
                 <!--Admin can remove/Edit task-->
                 <?php if(Auth::user()->approvement == 1 && Auth::user()->role == 1): ?>
                     <a onclick="EditTask(<?php echo e($task->id); ?>,<?php echo e($task->privacy); ?>,'<?php echo e($task->taskTitle); ?>','<?php echo e($task->task); ?>')"
-                        class="btn btn-info btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#EditTaskModal">Edit</a>
+                        class="btn btn-info btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#EditTaskModal"><i class="fa fa-edit"></i> Edit</a>
 
                     <form action="<?php echo e(Route('tasks.destroy', $task->id)); ?>" method="POST" style="display: inline-block">
                         <?php echo e(csrf_field()); ?>
 
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" onclick="return confirm('Sure you want to remove this task?','Warning!')"
-                            class="btn btn-danger btn-sm rounded-0 text-light">Delete</button>
+                            class="btn btn-danger btn-sm rounded-0 text-light"><i class="fa fa-trash"></i> Delete</button>
                     </form>
                 <?php endif; ?>
-                <a href="<?php echo e(route('TaskDone', $task->id)); ?>" class="btn btn-success btn-sm rounded-0 text-light">Done</a>
+                <a href="<?php echo e(route('TaskDone', $task->id)); ?>" class="btn btn-success btn-sm rounded-0 text-light"><i class="fa fa-check"></i> Done</a>
             </div>
         </div>
         </div>
@@ -126,11 +126,11 @@
 
                                 <!--End Show Task For User If Session Admin-->
                                 <td><a href="<?php echo e(route('TaskUndone', $taskdone->id)); ?>"
-                                        class="btn btn-warning btn-sm rounded-0">Undone</a></td>
+                                        class="btn btn-warning btn-sm rounded-0"><i class="fa fa-remove"></i> Undone</a></td>
                                 <!--Admin can remove task-->
                                 <?php if(Auth::user()->approvement == 1 && Auth::user()->role == 1): ?>
                                     <td><a href="#" class="btn btn-danger btn-sm  rounded-0" data-bs-toggle="modal"
-                                            data-bs-target="#RemoveTaskModal">Remove</a></td>
+                                            data-bs-target="#RemoveTaskModal"><i class="fa fa-trash"></i> Remove</a></td>
                                 <?php endif; ?>
                             </tr>
                         <?php endif; ?>
@@ -181,8 +181,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0">Edit Task</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i> Edit Task</button>
                         </div>
                     </div>
                 </form>
@@ -226,8 +226,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0">Add Task</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-plus"></i> Add Task</button>
                         </div>
                     </div>
                 </form>
@@ -252,8 +252,8 @@
                             Sure you want to remove this task!
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-danger btn-sm rounded-0">Remove Task</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-danger btn-sm rounded-0"><i class="fa fa-trash"></i> Remove Task</button>
                         </div>
                     </div>
                 </form>

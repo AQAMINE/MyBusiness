@@ -70,10 +70,10 @@
                             <td><a href="#"
                                     onclick="EditUser(<?php echo e($user->id); ?>,'<?php echo e($user->name); ?>','<?php echo e($user->firstname); ?>','<?php echo e($user->username); ?>','<?php echo e($user->email); ?>','<?php echo e($user->phone); ?>',<?php echo e($user->role); ?>,'<?php echo e($user->cin); ?>',<?php echo e($user->approvement); ?>)"
                                     class="btn btn-success btn-sm  rounded-0" data-bs-toggle="modal"
-                                    data-bs-target="#editUserModal">Edit</a></td>
+                                    data-bs-target="#editUserModal"><i class="fa fa-edit"></i> Edit</a></td>
                             <td><a dataid="" onclick="movedata('<?php echo e(route('user.destroy', $user->id)); ?>')"
                                     href="<?php echo e(route('user.destroy', $user->id)); ?>" class="btn btn-danger btn-sm  rounded-0"
-                                    data-bs-toggle="modal" data-bs-target="#RemoveuserModal" id="removeBtn">Remove</a></td>
+                                    data-bs-toggle="modal" data-bs-target="#RemoveuserModal" id="removeBtn"><i class="fa fa-trash"></i> Remove</a></td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -166,8 +166,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0">Add User</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-plus"></i> Add User</button>
                         </div>
                     </div>
                 </form>
@@ -255,8 +255,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0">Edit User</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i> Edit User</button>
                         </div>
                     </div>
                 </form>
@@ -287,8 +287,8 @@
                         </div>
                         <div class="modal-footer">
                             <a type="button" class="btn btn-secondary btn-sm rounded-0 text-light"
-                                data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-danger btn-sm rounded-0">Delete User</button>
+                                data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-danger btn-sm rounded-0"><i class="fa fa-trash"></i> Delete User</button>
                         </div>
                     </div>
                 </form>
