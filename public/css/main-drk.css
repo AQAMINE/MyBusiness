@@ -18,7 +18,7 @@ body{
 }
 .form-control-dark-mode{
   color: white;
- 
+
 }
 .finder_button{
   height: 38px !important;
@@ -157,6 +157,16 @@ body{
 }
 .btn-profile-update .btn{
   margin-top: 5px;
+}
+.profile_info_card .approvment{
+    font-size:10px;
+    font-weight:bold;
+}
+.information-update-zone{
+
+    padding: 10px !important;
+    /* box-shadow:1px 1px 12px 2px black; */
+
 }
 /**************End Profile Page *********************/
 

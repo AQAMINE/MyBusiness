@@ -3,7 +3,7 @@
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
         </button>
     </div>
-    <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+    <div class="img bg-wrap text-center py-4" style="background-image: url({{ asset('UsersProfilesPictures/bg_1.jpg' ) }});">
         <div class="user-logo">
             <div class="img  "
                 style="background-image: url({{ asset('UsersProfilesPictures/' . Auth::user()->profile_pic) }});"
@@ -51,8 +51,8 @@
                 <a href="{{ route('LocalAds.index') }}"><span class="fa fa-bullhorn mr-3"></span> Local Ads</a>
             </li>
         @endif
-        <li>
-            <a href="profile.html"><span class="fa fa-user mr-3"></span> Profile</a>
+        <li @if (Request::route()->getName() == 'showProfile') class="active" @endif>
+            <a href="{{route('showProfile' , Auth::id())}}"><span class="fa fa-user mr-3"></span> Profile</a>
         </li>
         <li>
             <a href="settings.html"><span class="fa fa-cog mr-3"></span> Settings</a>

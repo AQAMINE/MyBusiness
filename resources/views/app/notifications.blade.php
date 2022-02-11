@@ -14,7 +14,9 @@
             <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> You
                 Don't Have Any Notification To Show</h5>
         @else
-        <a href="#" class="btn btn-secondary btn-sm rounded-0 mb-2" data-bs-target="#CleareNotificationModal" data-bs-toggle="modal" >Clear All Notification</a>
+            <a href="#" class="btn btn-secondary btn-sm rounded-0 mb-2" data-bs-target="#CleareNotificationModal"
+                data-bs-toggle="modal"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                Clear All Notification</a>
             @foreach ($AllNotifications as $notification)
                 <div class="alert alert-dark alert-dismissible fade show rounded-0" role="alert">
                     <strong class="text-secondary">{{ $notification->created_at->diffForHumans() }} |</strong>
@@ -35,7 +37,7 @@
         <div class="modal fade" id="CleareNotificationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="CleareNotificationModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form action="{{route('clearNotifications')}}" method="post" >
+                <form action="{{ route('clearNotifications') }}" method="post">
                     {{ csrf_field() }}
 
                     <div class="modal-content rounded-0">
@@ -50,9 +52,10 @@
                             </ul>
                         </div>
                         <div class="modal-footer">
-                            <a type="button" class="btn btn-secondary btn-sm rounded-0 text-light"
-                                data-bs-dismiss="modal">Cancel</a>
-                            <button type="submit" class="btn btn-danger btn-sm rounded-0">Confirm</button>
+                            <a type="button" class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i
+                                    class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-danger btn-sm rounded-0"><i class="fa fa-trash"></i>
+                                Confirm</button>
                         </div>
                     </div>
                 </form>

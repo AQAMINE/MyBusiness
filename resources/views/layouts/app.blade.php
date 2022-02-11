@@ -64,9 +64,10 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <a class="btn btn-secondary btn-sm rounded-0 text-light"
-                                        data-bs-dismiss="modal">Cancel</a>
-                                    <button type="submit" class="btn btn-success btn-sm rounded-0">Change</button>
+                                    <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"> <i
+                                            class="fa fa-remove"></i> Cancel</a>
+                                    <button type="submit" class="btn btn-success btn-sm rounded-0"><i
+                                            class="fa fa-save"></i> Change</button>
                                 </div>
                             </div>
                         </form>
@@ -89,12 +90,13 @@
                                 Sure you want to <strong>Sign Out?</strong>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btn-sm rounded-0"
-                                    data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal"><i
+                                        class="fa fa-remove"></i> Cancel</button>
 
 
                                 <a class="btn btn-info btn-sm rounded-0" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
+                                                                    document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     {{ __('Logout') }}
                                 </a>
 

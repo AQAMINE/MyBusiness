@@ -29,6 +29,18 @@ function EditUser(id,name,firstname,username,email,phone,role,cin,approvement){
     if(approvement == 1){ $('#approvement').prop('checked', true) }else if(approvement == 0){$('#approvement').prop('checked', false)};
 }
 
+//input zone valuefor update (LocalAds)
+function EditLocalAds(id,content,startDate,endDate,status){
+
+    $('#id_ed').val(id);
+    $('#ad_content_ed').val(content);
+    $('#start_date_ed').val(startDate);
+    $('#end_date_ed').val(endDate);
+
+
+    if(status == 1){ $('#status_ed').prop('checked', true) }else if(status == 0){$('#status_ed').prop('checked', false)};
+}
+
 // Move Remove link To Modal Message
 function movedata(DeletedItem){
     $("#deleteForm").attr("action",DeletedItem);
@@ -55,14 +67,14 @@ window.$(document).ready(function(){
     /*Start change profile picture Scripte*/
 	$( '.blacks , .Link_call_Modal_PDP' ).hover( function(){$('.Link_call_Modal_PDP').css("display","block");} );
 	$( '.blacks , .Link_call_Modal_PDP' ).mouseout(function(){$('.Link_call_Modal_PDP').css("display","none");});
-  /*End Sidebare Scripte*/
+/*End Sidebare Scripte*/
 
 
 
 
 
 
-   });
+});
 
 
 

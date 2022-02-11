@@ -32,6 +32,7 @@
                 <div class="card-body">
                     <!--<h5 class="card-title">Info card title</h5>-->
                     <p class="card-text">{{ $ad->content }}</p>
+
                 </div>
                 <div class="crad-footer mb-2">
                     <a href="#" onclick="transferDataToModal('#removeLocalAdForm','{{ route('LocalAds.destroy', $ad->id) }}')"
@@ -46,7 +47,10 @@
                                 class="fa fa-eye"></i> Show</a>
                     @endif
 
-                    <a href="#" class="btn btn-success btn-sm rounded-0 ml-2"><i class="fa fa-edit"></i> Edit</a>
+                    <a href="#" class="btn btn-success btn-sm rounded-0 ml-2" data-bs-toggle="modal"
+                        data-bs-target="#EditLocalAdModal"
+                        onclick="EditLocalAds({{ $ad->id }},'{{ $ad->content }}','{{ date('Y-m-d\TH:i', strtotime($ad->created_at)) }}',{{ $ad->end_date }},{{ $ad->status }})"><i
+                            class="fa fa-edit"></i> Edit</a>
                 </div>
             </div>
         @endforeach
@@ -87,7 +91,8 @@
 
                             <div class="mb-3">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="status" name="status" checked>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="status" name="status"
+                                        checked>
                                     <label class="form-check-label" for="status">Show</label>
                                 </div>
                             </div>
@@ -104,6 +109,61 @@
             </div>
         </div>
         <!--End New LocalAd Modal-->
+
+        <!--Start Edit LocalAd Modal-->
+        <div class="modal fade" id="EditLocalAdModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="EditLocalAdModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="{{ route('LocalAds.store') }}" method="POST" ß>
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" id="id_ed">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header bg-success  rounded-0">
+                            <h5 class="modal-title" id="EditLocalAdModalLabel">Edit Local Ad</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="ad_content" class="form-label">Content</label>
+                                <textarea class="form-control rounded-0" id="ad_content_ed" name="content"
+                                    placeholder="Type Local Ad Here!"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="start_date" class="form-label">Start Date</label>
+                                <input type="datetime-local" class="form-control rounded-0" id="start_date_ed" name="created_at"
+                                    placeholder="Start Date!">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="end_date" class="form-label">End Date</label>
+                                <input type="datetime-local" class="form-control rounded-0" id="end_date_ed" name="end_date"
+                                    placeholder="End Date!">
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="status_ed" name="status"
+                                        checked>
+                                    <label class="form-check-label" for="status">Show</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i
+                                    class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i> Edit
+                                Ad</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--End Edit LocalAd Modal-->
 
         <!--Start Remove Ad Modal-->
         <div class="modal fade" id="RemoveLocalAd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

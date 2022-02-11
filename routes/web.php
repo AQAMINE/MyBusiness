@@ -24,6 +24,9 @@ Route::post('clear/notifications','NotificationControler@removeAll')->name('clea
 Route::post('/User/find', 'UserController@findUser')->name('find.user');
 Route::post('EditProfilePicture/', 'UserController@ChangeProfilePic')->name('EditProfilePicture');
 Route::post('UpdateUser', 'UserController@UpdateUser')->name('UpdateUser');
+Route::get('/myprofile/{id}' , 'UserController@show')->name('showProfile');
+Route::get('/myprofile/update/{id}','UserController@edit')->name('editeProfile');
+Route::delete('myprofile/{id}','UserController@RemoveAccount')->name('close.account');
 //End Users Route
 
 //Start Clients Routes

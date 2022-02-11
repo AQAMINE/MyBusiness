@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Traits\NotificationTrait;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Task;
 use CreateTasksTable;
 use GuzzleHttp\Handler\Proxy;
 use GuzzleHttp\Promise\Create;
@@ -20,7 +21,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('adminuser')->except(['ChangeProfilePic']);
+        $this->middleware('adminuser')->except(['ChangeProfilePic', 'show', 'edit', 'RemoveAccount', 'update']);
     }
     /**
      * Display a listing of the resource.
@@ -48,6 +49,7 @@ class UserController extends Controller
     public function create()
     {
         //
+
 
     }
 
@@ -148,6 +150,18 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $datas = User::latest()->where('id', $id)->get();
+        // $datas = User::find($id)->get();
+        if ($id == Auth::id()) {
+            $tasksdone = Task::where('privacy', Auth::id())->where('done', 1)->count();
+            $undoneTasks = Task::where('privacy', Auth::id())->where('done', 0)->count();
+
+            $notificationCounter = $this->NotificationCounter();
+            return view('app.profile', compact(['datas', 'tasksdone', 'undoneTasks', 'notificationCounter']));
+        } else {
+            return abort(404, 'Page not found.');
+        }
+        return abort(404, 'Page not found.');
     }
 
     /**
@@ -159,6 +173,14 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $datas = User::where('id', $id)->first();
+        if ($id == Auth::id()) {
+            $notificationCounter = $this->NotificationCounter();
+            return view('app.profileUpdate', compact(['datas', 'notificationCounter']));
+        } else {
+            return abort(404, 'Page not found.');
+        }
+        return abort(404, 'Page not found.');
     }
 
     /**
@@ -171,6 +193,34 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $request->validate([
+            'id_card' => 'mimes:png,jpg,jpeg|max:5048'
+        ]);
+
+        $user = User::find($id);
+        if (Auth::id() != $id) {
+
+            return abort(404, 'Page not found.');
+        }
+
+
+        if($request->id_card != null) {
+            $id_cardName =  'MyBusiness_IdCard' .  time() . '-' . Auth::user()->id . Auth::user()->username . '.' . $request->id_card->extension();
+            $request->id_card->move(public_path('UsersProfilesPictures'), $id_cardName);
+            $user->id_card = $id_cardName;
+        }
+
+
+        $user->username = $request->input('username');
+        $user->firstname = $request->input('firstname');
+        $user->name = $request->input('lastname');
+        $user->phone = $request->input('phone');
+        $user->cin = $request->input('cin');
+        $user->role_incompany = $request->input('role_in_company');
+
+        $user->save();
+        return redirect(route('showProfile', Auth::id()));
     }
 
     /**
@@ -235,5 +285,19 @@ class UserController extends Controller
             return abort(404, 'Page not found.');
         }
         return abort(404, 'Page not found.');
+    }
+
+    public function RemoveAccount($id)
+    {
+        if (Auth::id() == $id) {
+            $user = User::find($id);
+            if (!is_null($user)) {
+                DB::table('users')->where('id', '=', $id)->delete();
+                return redirect(route('logout'));
+            } else {
+                return abort(404, 'Page not found.');
+            }
+        }
+        return abort(404, 'Page not found');
     }
 }

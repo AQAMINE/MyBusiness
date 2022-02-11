@@ -14,3 +14,6 @@ LocalAds Model
 
 dahbord show the ads in the date
 localadsmanager add delete hide
+-we need to pars date in js
+-in tasks done table show user owner
+images/bg_1.jpg
