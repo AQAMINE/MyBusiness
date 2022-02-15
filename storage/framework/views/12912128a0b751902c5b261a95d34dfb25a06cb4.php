@@ -49,7 +49,7 @@
                             <tr>
                                 <th scope="row">Id Card</th>
                                 <td>
-                                    <input type="file" name="id_card" class="form-control-plaintext form-control-dark-mode">
+                                    <input type="file" name="id_card" placeholder="Reploaded" class="form-control-plaintext form-control-dark-mode">
 
 
                                     <?php if(is_null($datas->id_card)): ?>

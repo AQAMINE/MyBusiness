@@ -17,7 +17,8 @@
 
             @if ($tasks->isEmpty())
                 <h5 class="text-center alert alert-secondary rounded-0"><i class="fa fa-check-circle" aria-hidden="true"></i> All
-                    <strong>Tasks</strong> Done</h5>
+                    <strong>Tasks</strong> Done
+                </h5>
             @else
                 @foreach ($tasks as $task)
                     @if ($task->done == 0)
@@ -46,7 +47,8 @@
                 <!--Admin can remove/Edit task-->
                 @if (Auth::user()->approvement == 1 && Auth::user()->role == 1)
                     <a onclick="EditTask({{ $task->id }},{{ $task->privacy }},'{{ $task->taskTitle }}','{{ $task->task }}')"
-                        class="btn btn-info btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#EditTaskModal"><i class="fa fa-edit"></i> Edit</a>
+                        class="btn btn-info btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#EditTaskModal"><i
+                            class="fa fa-edit"></i> Edit</a>
 
                     <form action="{{ Route('tasks.destroy', $task->id) }}" method="POST" style="display: inline-block">
                         {{ csrf_field() }}
@@ -55,7 +57,8 @@
                             class="btn btn-danger btn-sm rounded-0 text-light"><i class="fa fa-trash"></i> Delete</button>
                     </form>
                 @endif
-                <a href="{{ route('TaskDone', $task->id) }}" class="btn btn-success btn-sm rounded-0 text-light"><i class="fa fa-check"></i> Done</a>
+                <a href="{{ route('TaskDone', $task->id) }}" class="btn btn-success btn-sm rounded-0 text-light"><i
+                        class="fa fa-check"></i> Done</a>
             </div>
         </div>
         </div>
@@ -159,7 +162,8 @@
                                         <option selected>Select User</option>
                                         <option value="0">Public Task</option>
                                         @foreach ($usersFullNameAndIds as $usersFullNameAndId)
-                                            <option value="{{ $usersFullNameAndId->id }}">{{ $usersFullNameAndId->firstname }}
+                                            <option value="{{ $usersFullNameAndId->id }}">
+                                                {{ $usersFullNameAndId->firstname }}
                                                 {{ $usersFullNameAndId->name }}</option>
                                         @endforeach
                                     </select>
@@ -177,8 +181,10 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i> Edit Task</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i
+                                    class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i> Edit
+                                Task</button>
                         </div>
                     </div>
                 </form>
@@ -204,7 +210,8 @@
                                         <option selected>Select User</option>
                                         <option value="0">Public Task</option>
                                         @foreach ($usersFullNameAndIds as $usersFullNameAndId)
-                                            <option value="{{ $usersFullNameAndId->id }}">{{ $usersFullNameAndId->firstname }}
+                                            <option value="{{ $usersFullNameAndId->id }}">
+                                                {{ $usersFullNameAndId->firstname }}
                                                 {{ $usersFullNameAndId->name }}</option>
                                         @endforeach
                                     </select>
@@ -220,8 +227,10 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
-                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-plus"></i> Add Task</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i
+                                    class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-success btn-sm rounded-0"><i class="fa fa-plus"></i> Add
+                                Task</button>
                         </div>
                     </div>
                 </form>
@@ -245,8 +254,10 @@
                             Sure you want to remove this task!
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i class="fa fa-remove"></i> Cancel</a>
-                            <button type="submit" class="btn btn-danger btn-sm rounded-0"><i class="fa fa-trash"></i> Remove Task</button>
+                            <a class="btn btn-secondary btn-sm rounded-0 text-light" data-bs-dismiss="modal"><i
+                                    class="fa fa-remove"></i> Cancel</a>
+                            <button type="submit" class="btn btn-danger btn-sm rounded-0"><i class="fa fa-trash"></i> Remove
+                                Task</button>
                         </div>
                     </div>
                 </form>

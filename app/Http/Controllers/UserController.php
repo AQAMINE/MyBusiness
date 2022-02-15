@@ -205,7 +205,7 @@ class UserController extends Controller
         }
 
 
-        if($request->id_card != null) {
+        if ($request->id_card != null) {
             $id_cardName =  'MyBusiness_IdCard' .  time() . '-' . Auth::user()->id . Auth::user()->username . '.' . $request->id_card->extension();
             $request->id_card->move(public_path('UsersProfilesPictures'), $id_cardName);
             $user->id_card = $id_cardName;
