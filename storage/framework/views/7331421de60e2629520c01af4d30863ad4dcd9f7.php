@@ -1,5 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="container">
+
         <h1>News <i class="fa fa-newspaper-o"></i></h1>
                 <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="card text-white bg-dark mb-3 rounded-0">

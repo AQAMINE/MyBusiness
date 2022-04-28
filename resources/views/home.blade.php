@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+
         <h1>News <i class="fa fa-newspaper-o"></i></h1>
                 @foreach ($ads as $ad)
                 <div class="card text-white bg-dark mb-3 rounded-0">
